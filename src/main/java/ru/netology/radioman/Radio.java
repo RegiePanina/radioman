@@ -87,7 +87,7 @@ public class Radio {
     }
 
     public void increaseRadioStation () {
-        if (currentRadioStation >= maxRadioStation) {
+        if (currentRadioStation > maxRadioStation) {
             setCurrentRadioStation(minRadioStation);
         } else {
             setCurrentRadioStation(currentRadioStation + 1);
@@ -95,7 +95,7 @@ public class Radio {
     }
 
     public void reduceRadioStation () {
-        if (currentRadioStation <= minRadioStation) {
+        if (currentRadioStation < minRadioStation) {
             setCurrentRadioStation(maxRadioStation);
         } else {
             setCurrentRadioStation(currentRadioStation - 1);
