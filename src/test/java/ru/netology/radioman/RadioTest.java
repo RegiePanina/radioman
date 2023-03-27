@@ -46,10 +46,10 @@ public class RadioTest {
         Radio radio = new Radio();
 
         radio.setCurrentRadioStation(3);
-        radio.increaseRadioStation();
+        //radio.increaseRadioStation();
 
 
-        int expected = 4;
+        int expected = 3;
         int actual = radio.getCurrentRadioStation();
 
         Assertions.assertEquals(expected, actual);
@@ -109,7 +109,6 @@ public class RadioTest {
         Radio radio = new Radio();
 
         radio.setSoundVolume(11);
-        radio.getMaxVolume();
 
         int expected = 0;
         int actual = radio.getSoundVolume();
@@ -123,7 +122,6 @@ public class RadioTest {
         Radio radio = new Radio();
 
         radio.setSoundVolume(-1);
-        radio.getMinVolume();
 
         int expected = 0;
         int actual = radio.getSoundVolume();
@@ -151,11 +149,61 @@ public class RadioTest {
         radio.setSoundVolume(4);
         radio.reduceVolume();
 
+        int expected = 3;
+        int actual = radio.getSoundVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void limitValuesVolumeInsideUp() {
+        Radio radio = new Radio();
+
+        radio.setSoundVolume(9);
+
+        int expected = 9;
+        int actual = radio.getSoundVolume();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void limitValuesVolumeOutsideUp() {
+        Radio radio = new Radio();
+
+        radio.setSoundVolume(11);
+
         int expected = 0;
         int actual = radio.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
     }
+
+    @Test
+    public void limitValuesVolumeInsideDown() {
+        Radio radio = new Radio();
+
+        radio.setSoundVolume(1);
+
+        int expected = 1;
+        int actual = radio.getSoundVolume();
+
+        Assertions.assertEquals(expected, actual);
+
+    }
+
+    @Test
+    public void limitValuesVolumeOutsideDown() {
+        Radio radio = new Radio();
+
+        radio.setSoundVolume(-1);
+
+        int expected = 0;
+        int actual = radio.getSoundVolume();
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 }
 
 

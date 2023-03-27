@@ -38,67 +38,35 @@ public class Radio {
         this.soundVolume = soundVolume;
     }
 
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
-
-    public int getMinRadioStation() {
-        return minRadioStation;
-    }
-
-    public void setMinRadioStation(int minRadioStation) {
-        this.minRadioStation = minRadioStation;
-    }
-
-    public int getMaxRadioStation() {
-        return maxRadioStation;
-    }
-
-    public void setMaxRadioStation(int maxRadioStation) {
-        this.maxRadioStation = maxRadioStation;
-    }
-
     public void increaseVolume() {
         if (soundVolume < 10) {
-            soundVolume = soundVolume + 1;
+            soundVolume++;
         } else {
             soundVolume = maxVolume;
         }
     }
 
     public void reduceVolume () {
-        if (soundVolume > 10) {
-            soundVolume = soundVolume - 1;
+        if (soundVolume > 0) {
+            soundVolume--;
         } else {
             soundVolume = minVolume;
         }
     }
 
     public void increaseRadioStation () {
-        if (currentRadioStation > maxRadioStation) {
-            setCurrentRadioStation(minRadioStation);
+        if (currentRadioStation < 9) {
+            currentRadioStation++;
         } else {
-            setCurrentRadioStation(currentRadioStation + 1);
+            currentRadioStation = minRadioStation;
         }
     }
 
     public void reduceRadioStation () {
-        if (currentRadioStation < minRadioStation) {
-            setCurrentRadioStation(maxRadioStation);
+        if (currentRadioStation > 0) {
+            currentRadioStation--;
         } else {
-            setCurrentRadioStation(currentRadioStation - 1);
+            currentRadioStation = maxRadioStation;
         }
     }
 }
