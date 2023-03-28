@@ -46,7 +46,7 @@ public class Radio {
         }
     }
 
-    public void reduceVolume () {
+    public void reduceVolume() {
         if (soundVolume > 0) {
             soundVolume--;
         } else {
@@ -54,7 +54,7 @@ public class Radio {
         }
     }
 
-    public void increaseRadioStation () {
+    public void increaseRadioStation() {
         if (currentRadioStation < 9) {
             currentRadioStation++;
         } else {
@@ -62,7 +62,7 @@ public class Radio {
         }
     }
 
-    public void reduceRadioStation () {
+    public void reduceRadioStation() {
         if (currentRadioStation > 0) {
             currentRadioStation--;
         } else {
