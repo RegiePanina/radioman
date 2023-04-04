@@ -259,6 +259,35 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+    //Новая ветка
+
+    @Test
+    public void shouldCheckNewChanges() {
+        Radio radio = new Radio(0, 10, 5);
+
+        Assertions.assertEquals(5, radio.getCurrentRadioStation());
+
+    }
+
+    @Test
+    public void shouldPressNextStation() {
+        Radio radio = new Radio(0, 10, 5);
+
+        radio.increaseRadioStation();
+
+        Assertions.assertEquals(6, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldPressPrevStation() {
+        Radio radio = new Radio(0, 10, 5);
+
+        radio.reduceRadioStation();
+
+        Assertions.assertEquals(4, radio.getCurrentRadioStation());
+
+    }
+
 }
 
 
