@@ -137,10 +137,10 @@ public class RadioTest {
     public void shouldSetMaxVolume() {
         Radio radio = new Radio();
 
-        radio.setSoundVolume(10);
+        radio.setSoundVolume(100);
         radio.increaseVolume();
 
-        int expected = 10;
+        int expected = 100;
         int actual = radio.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -163,7 +163,7 @@ public class RadioTest {
     public void shouldSetOverMaxVolume() {
         Radio radio = new Radio();
 
-        radio.setSoundVolume(11);
+        radio.setSoundVolume(110);
 
         int expected = 0;
         int actual = radio.getSoundVolume();
@@ -213,9 +213,9 @@ public class RadioTest {
     public void limitValuesVolumeInsideUp() {
         Radio radio = new Radio();
 
-        radio.setSoundVolume(9);
+        radio.setSoundVolume(99);
 
-        int expected = 9;
+        int expected = 99;
         int actual = radio.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
@@ -226,7 +226,7 @@ public class RadioTest {
     public void limitValuesVolumeOutsideUp() {
         Radio radio = new Radio();
 
-        radio.setSoundVolume(11);
+        radio.setSoundVolume(101);
 
         int expected = 0;
         int actual = radio.getSoundVolume();
@@ -257,6 +257,35 @@ public class RadioTest {
         int actual = radio.getSoundVolume();
 
         Assertions.assertEquals(expected, actual);
+    }
+
+    //Новая ветка
+
+    @Test
+    public void shouldCheckNewChanges() {
+        Radio radio = new Radio(20);
+
+        Assertions.assertEquals(0, radio.getCurrentRadioStation());
+
+    }
+
+    @Test
+    public void shouldPressNextStation() {
+        Radio radio = new Radio(20);
+
+        radio.setCurrentRadioStation(21);
+
+        Assertions.assertEquals(0, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void shouldPressPrevStation() {
+        Radio radio = new Radio(20);
+
+        radio.setCurrentRadioStation(19);
+
+        Assertions.assertEquals(19, radio.getCurrentRadioStation());
+
     }
 
 }

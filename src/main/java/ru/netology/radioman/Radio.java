@@ -1,17 +1,23 @@
 package ru.netology.radioman;
 
 public class Radio {
-    private int currentRadioStation;
-    private int soundVolume;
     private int minVolume = 0;
-    private int maxVolume = 10;
+    private int maxVolume = 100;
     private int minRadioStation = 0;
     private int maxRadioStation = 9;
+    private int soundVolume;
+    private int currentRadioStation;
 
+    public Radio() {
+
+    }
+
+    public Radio(int numberOfStations) {
+        this.maxRadioStation = numberOfStations - 1;
+    }
 
     public int getCurrentRadioStation() {
         return currentRadioStation;
-
     }
 
     public void setCurrentRadioStation(int currentRadioStation) {
